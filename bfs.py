@@ -9,16 +9,16 @@ def bfs(graph, start_v):
     visited = {}
 
     q.append(start_v)
-    visited[start_v] = True
+    visited[start_v] = 0  # value를 distance로 표현
 
     while q:
         cur_v = q.popleft()
-        print(cur_v)
+        print(f"Vertex: {cur_v}, Distance: {visited[cur_v]}")
 
         for next_v in graph[cur_v]:
             if next_v not in visited:
                 q.append(next_v)
-                visited[next_v] = True
+                visited[next_v] = visited[cur_v] + 1
 
 
 
